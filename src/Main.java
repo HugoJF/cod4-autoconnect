@@ -31,11 +31,16 @@ public class Main {
 		while (true) {
 			System.out.println("Please inform the server IP and PORT. ex.: 123.123.123.123:1234");
 			String userInput = scanner.nextLine();
+			System.out.println("Scanning the ip");
 			sv.loadFromIp(userInput);
+			System.out.println("Loading the ip");
 			sip.loadFromServer(sv);
 			// validate informations
+			System.out.println("Validating server ip");
 			sv.validate();
+			System.out.println();
 			if (sv.isValid() && sip.isQueryInformationValid(sv)) {
+				System.out.println("Server info is valid.");
 				break;
 			}
 		}
@@ -45,8 +50,11 @@ public class Main {
 
 		while (true) {
 			// loop getting informations if valid
+			System.out.println("Loading server");
 			sip.loadFromServer(sv);
+			System.out.println("Refreshing info");
 			sip.refreshInfo();
+			System.out.println("Parsing info");
 			sip.parseInfo();
 			// once empty slot connect
 			if (sip.hasEmptySlot()) {

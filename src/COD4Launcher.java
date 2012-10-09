@@ -17,6 +17,7 @@ public class COD4Launcher {
 		try {
 			Runtime.getRuntime().exec("cmd.exe /C cd \"" + this.pathToCod4 + "\" && start iw3mp.exe connect " + sv.getIp() + ":" + sv.getPort());
 		} catch (IOException e) {
+			System.out.println("Error launching the .exe");
 			e.printStackTrace();
 		}
 	}
